@@ -1,0 +1,9 @@
+.buttons {
+  width: 10em;
+  max-width: 16.25em;
+  height: 1.5em;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
+  font-family: "Open Sans", sans-serif;
+}
