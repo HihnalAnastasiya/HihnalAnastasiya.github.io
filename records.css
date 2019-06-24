@@ -1,0 +1,34 @@
+.records {
+  margin: 9em auto;
+  width: 50%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.table {
+  width: 40em;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+td {
+  vertical-align: middle;
+  padding: 0.8em;
+  font-size: 0.9em;
+  text-align: center;
+  border: 2px solid black;
+}
+
+.title_records {
+  font-family: "Open Sans", sans-serif;
+}
+
+.buttons {
+  width: 10em;
+  max-width: 16.25em;
+  height: 1.5em;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
+  font-family: "Open Sans", sans-serif;
+}
