@@ -10,21 +10,21 @@ player.onload = drawCanvas;
 bg.src = 'img/sky.jpg';
 player.src = 'img/ufo02.gif';
 
-var playerX = canvas.width / 2 - 100;
-var playerY = canvas.height - 200;
+var playerPosX = canvas.width / 2 - 120 / 2;
+var playerPosY = canvas.height - 100;
 
 function drawCanvas() {
   var context = canvas.getContext('2d');
 
   context.drawImage(bg, 10, 10);
-  context.drawImage(player, playerX, playerY);
+  context.drawImage(player, playerPosX, playerPosY, 120, 100);
 }
 
 requestAnimationFrame(tick);
 
 var playerH = {
-  posX: playerX,
-  posY: playerY,
+  posX: playerPosX,
+  posY: playerPosY,
   speedX: 0,
   speedY: 0,
   height: 100,
@@ -78,21 +78,3 @@ window.addEventListener('keyup', function (EO) {
     playerH.speedX = 0;
   }
 });
-
-function tick() {
-  playerH.update();
-
-  playerH.posX += playerH.speedX;
-  playerH.posY += playerH.speedY;
-  // if (playerH.posY + playerH.height > canvas.height) {
-  //   playerH.posY = canvas.height -  playerH.height - 2;
-  // }
-  // if (playerH.posY < 0) {
-  //   playerH.posY = 0;
-  // }
-  //
-
-  // playerH.update();
-
-  requestAnimationFrame(tick);
-}
