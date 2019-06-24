@@ -29,17 +29,17 @@ var playerH = {
   speedY: 0,
   height: 100,
   width: 100,
-  update: function() {
+  update: function () {
     var playerObj = player;
-    playerObj.style.left = this.posX + "px";
-    playerObj.style.top = this.posY + "px";
+    playerObj.style.left = this.posX + 'px';
+    playerObj.style.top = this.posY + 'px';
   }
 };
 
 playerH.update();
 
 // Функции обработчиков событий (упраление клавиатурой)
-window.addEventListener("keydown", function(EO) {
+window.addEventListener('keydown', function (EO) {
   EO = EO || window.event;
   EO.preventDefault();
 
@@ -59,7 +59,7 @@ window.addEventListener("keydown", function(EO) {
   }
 });
 
-window.addEventListener("keyup", function (EO) {
+window.addEventListener('keyup', function (EO) {
   EO = EO || window.event;
   EO.preventDefault();
 
