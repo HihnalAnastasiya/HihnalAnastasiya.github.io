@@ -96,36 +96,61 @@ canvas {
 
 /*rules*/
 
-#rules {
-  margin: 12.5em auto;
-  width: 50%;
-  max-width: 100%;
-  text-align: center;
-}
+/*#rules {*/
+  /*margin: 12.5em auto;*/
+  /*width: 50%;*/
+  /*max-width: 100%;*/
+  /*text-align: center;*/
+/*}*/
 
-.title {
-  font-size: 1.4em;
-}
+/*.title {*/
+  /*font-size: 1.4em;*/
+/*}*/
 
-.list {
-  list-style: none;
-  text-align: left;
-  font-size: 1.2em;
-}
+/*.list {*/
+  /*list-style: none;*/
+  /*text-align: left;*/
+  /*font-size: 1.2em;*/
+/*}*/
 
-.title, .list {
-  font-family: "Open Sans", sans-serif;
-}
+/*.title, .list {*/
+  /*font-family: "Open Sans", sans-serif;*/
+/*}*/
 
-.buttons {
-  width: 10em;
-  max-width: 16.25em;
-  height: 1.5em;
-  background-color: transparent;
-  border: none;
-  font-size: 1.2em;
-  font-family: "Open Sans", sans-serif;
-}
+/*.buttons {*/
+  /*width: 10em;*/
+  /*max-width: 16.25em;*/
+  /*height: 1.5em;*/
+  /*background-color: transparent;*/
+  /*border: none;*/
+  /*font-size: 1.2em;*/
+  /*font-family: "Open Sans", sans-serif;*/
+/*}*/
+
+/*game menu*/
+
+/*#menu {*/
+  /*display: flex;*/
+  /*width: 100%;*/
+  /*max-width: 100%;*/
+  /*height: 100vh;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+/*}*/
+
+/*.menu__list {*/
+  /*list-style: none;*/
+/*}*/
+
+/*.buttons {*/
+  /*width: 10em;*/
+  /*max-width: 16.25em;*/
+  /*height: 1.5em;*/
+  /*background-color: transparent;*/
+  /*border: none;*/
+  /*font-size: 1.2em;*/
+  /*font-family: "Open Sans", sans-serif;*/
+/*}*/
 
 
 
