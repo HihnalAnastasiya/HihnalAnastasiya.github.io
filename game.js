@@ -231,3 +231,11 @@ function update() {
 }
 
 
+// цикл, постоянно отрисовывающий и обнавляющий игру
+function gameLoop() {
+  update();
+  draw();
+  requestAnimFrame(gameLoop);
+}
+
+gameLoop();
