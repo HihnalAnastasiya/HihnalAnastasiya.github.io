@@ -133,3 +133,82 @@ var player = {
     }
   }
 };
+
+
+var isPlaying = true;
+
+
+// свойства и методы бонусных кексов
+var cake = {
+  w: 40,
+  h: 40,
+  sy: 3,
+  px: Math.random() * (800 - player.w),
+  py: -40,
+  draw: function () {
+    var imgCake = new Image();
+    imgCake.src = 'img/cakes/cake01.png';
+    context.drawImage(imgCake, this.px, this.py, this.w, this.h);
+  },
+  update: function () {
+    if (isPlaying) {
+      this.py += this.sy;
+      if (this.py + this.h > canvas.height) {
+        this.py = canvas.height - this.h;
+      }
+      if (this.py < 0) {
+        this.py = 0;
+      }
+    }
+  }
+};
+
+var cake2 = {
+  w: 35,
+  h: 35,
+  sy: 4,
+  px: Math.random() * (800 - player.w),
+  py: -40,
+  draw: function () {
+    var imgCake2 = new Image();
+    imgCake2.src = 'img/cakes/cake02.png';
+    context.drawImage(imgCake2, this.px, this.py, this.w, this.h);
+  },
+  update: function () {
+    if (isPlaying) {
+      this.py += this.sy;
+      if (this.py + this.h > canvas.height) {
+        this.py = canvas.height - this.h;
+      }
+      if (this.py < 0) {
+        this.py = 0;
+      }
+    }
+  }
+};
+
+var cake3 = {
+  w: 45,
+  h: 45,
+  sy: 2,
+  px: Math.random() * (800 - player.w),
+  py: -40,
+  draw: function () {
+    var imgCake2 = new Image();
+    imgCake2.src = 'img/cakes/cake03.png';
+    context.drawImage(imgCake2, this.px, this.py, this.w, this.h);
+  },
+  update: function () {
+    if (isPlaying) {
+      this.py += this.sy;
+      if (this.py + this.h > canvas.height) {
+        this.py = canvas.height - this.h;
+      }
+      if (this.py < 0) {
+        this.py = 0;
+      }
+    }
+  }
+};
+
+
