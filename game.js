@@ -222,3 +222,12 @@ function draw() {
 }
 
 
+// обновление сущностей
+function update() {
+  player.update();
+  cake.update();
+  cake2.update();
+  cake3.update();
+}
+
+
