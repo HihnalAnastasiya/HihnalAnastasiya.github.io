@@ -45,3 +45,35 @@ preloadImage('img/ufo02.gif');
 preloadImage('img/cakes/cake01.png');
 preloadImage('img/cakes/cake02.png');
 preloadImage('img/cakes/cake03.png');
+
+
+// свойства и методы игрока
+var player = {
+  w: 90,
+  h: 65,
+  sx: 0,
+  sy: 0,
+  px: 205,
+  py: 400,
+  draw: function () {
+    var img = new Image();
+    img.src = 'img/ufo02.gif';
+    context.drawImage(img, this.px, this.py, this.w, this.h);
+  },
+  update: function () {
+    this.px += this.sx;
+    this.py += this.sy;
+    if (this.py + this.h > canvas.height) {
+      this.py = (canvas.height + 4) - this.h;
+    }
+    if (this.py < 0) {
+      this.py = 0;
+    }
+    if (this.px + this.w > canvas.width) {
+      this.px = canvas.width - this.w;
+    }
+    if (this.px < 0) {
+      this.px = 0;
+    }
+  }
+};
