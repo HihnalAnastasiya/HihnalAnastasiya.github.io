@@ -89,6 +89,20 @@ window.addEventListener('keyup', function (EO) {
 });
 
 
+// свойства и методы фона
+var background = {
+  px: 0,
+  py: 0,
+  w: canvas.width,
+  h: canvas.height,
+  draw: function () {
+    var bg = new Image();
+    bg.src = 'img/bg01.jpg';
+    context.drawImage(bg, this.px, this.py, this.w, this.h);
+  }
+};
+
+
 // свойства и методы игрока
 var player = {
   w: 90,
