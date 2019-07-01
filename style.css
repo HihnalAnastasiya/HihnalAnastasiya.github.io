@@ -65,7 +65,6 @@ canvas {
   font-size: 1.5em;
 }
 
-
 #game-over, #game-over-overlay {
   margin: auto;
   width: 512px;
@@ -94,3 +93,39 @@ canvas {
   font-size: 3em;
   font-family: sans-serif;
 }
+
+/*rules*/
+
+#rules {
+  margin: 12.5em auto;
+  width: 50%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.4em;
+}
+
+.list {
+  list-style: none;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.title, .list {
+  font-family: "Open Sans", sans-serif;
+}
+
+.buttons {
+  width: 10em;
+  max-width: 16.25em;
+  height: 1.5em;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
+  font-family: "Open Sans", sans-serif;
+}
+
+
+
