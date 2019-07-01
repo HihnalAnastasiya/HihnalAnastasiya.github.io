@@ -3,16 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
+  <title>Главная</title>
   <link rel="stylesheet" href="style.css">
-  <title>Space</title>
 </head>
 <body>
-  <ul class="list">
-  <li id="mainPage">ГЛАВНАЯ</li>
-  <li id="gamePage">ИГРАТЬ</li>
-  <li id="rulesPage">ПРАВИЛА</li>
-  <li id='scorePage'>РЕКОРДЫ</li>
-  <li id='aboutProject'>О ПРОЕКТЕ</li>
-</ul>
+<canvas id="canvas"></canvas>
+
+<div id="game-over-overlay">
+</div>
+
+<div id="game-start">
+  <h1>GAME START</h1>
+  <button id="play">Play</button>
+</div>
+
+<div id="game-over">
+  <h1>GAME OVER</h1>
+  <button id="play-again">Play Again</button>
+</div>
+
+<div class="wrapper">
+  <div id="instructions">
+    <div>
+      <!--move with <span class="key">arrows</span> or <span class="key">wasd</span>-->
+    </div>
+    <div>
+      <!--shoot with <span class="key">space</span>-->
+    </div>
+  </div>
+
+  <div id="score"></div>
+</div>
+<!--<input class="buttons" type=button value='Вернуться в меню' onclick='switchToMainPage()'>-->
+<script src="game.js"></script>
 </body>
 </html>
