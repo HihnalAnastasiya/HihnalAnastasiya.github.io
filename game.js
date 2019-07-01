@@ -212,3 +212,13 @@ var cake3 = {
 };
 
 
+// отрисовка объектов на канвасе
+function draw() {
+  background.draw();
+  player.draw();
+  cake.draw();
+  cake2.draw();
+  cake3.draw();
+}
+
+
