@@ -9,6 +9,23 @@
 <body>
 <canvas id="canvas"></canvas>
 
+<div id=menu>
+  <ul class="menu__list">
+    <li class="menu__game">
+      <input class="buttons" type="button" value="Начать игру" onclick="switchToGamePage()">
+    </li>
+    <li class="menu__game">
+      <input class="buttons" type=button value='Правила игры' onclick='switchToRulesPage()'>
+    </li>
+    <li class="menu__game">
+      <input class="buttons" type=button value='Рекорды' onclick='switchToRecordsPage()'>
+    </li>
+    <li class="menu__game">
+      <input class="buttons" type=button value='О проекте' onclick='switchToAboutProjectPage()'>
+    </li>
+  </ul>
+</div>
+
 <div id="rules">
   <span class="title">Правила игры</span>
   <h3>Помогите нашему крошечному пришельцу собрать как можно больше энергетических кексов избегая при этом препятствий
