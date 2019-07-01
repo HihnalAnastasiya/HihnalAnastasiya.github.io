@@ -47,6 +47,48 @@ preloadImage('img/cakes/cake02.png');
 preloadImage('img/cakes/cake03.png');
 
 
+// управление игроком с клавиатуры
+window.addEventListener('keydown', function (EO) {
+  EO = EO || window.event;
+  EO.preventDefault();
+
+  if (EO.keyCode === 40) {
+    player.sy = 10;
+  }
+
+  if (EO.keyCode === 38) {
+    player.sy = -10;
+  }
+  if (EO.keyCode === 39) {
+    player.sx  = 10;
+  }
+
+  if (EO.keyCode === 37) {
+    player.sx  = -10;
+  }
+});
+
+window.addEventListener('keyup', function (EO) {
+  EO = EO || window.event;
+  EO.preventDefault();
+
+  if (EO.keyCode === 40) {
+    player.sy = 0;
+  }
+
+  if (EO.keyCode === 38) {
+    player.sy = 0;
+  }
+  if (EO.keyCode === 39) {
+    player.sx  = 0;
+  }
+
+  if (EO.keyCode === 37) {
+    player.sx  = 0;
+  }
+});
+
+
 // свойства и методы игрока
 var player = {
   w: 90,
