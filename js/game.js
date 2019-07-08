@@ -53,6 +53,8 @@ preloadImage('img/ufo02.gif');
 preloadImage('img/cakes/cake01.png');
 preloadImage('img/cakes/cake02.png');
 preloadImage('img/cakes/cake03.png');
+preloadImage('img/meteor.png');
+preloadImage('img/title.png');
 
 
 // управление игроком с клавиатуры
