@@ -3,6 +3,9 @@ var score = 0;
 var audio = document.querySelector('audio');
 var startButton = document.getElementById('game');
 
+// устанавливаем слушателя на startButton
+startButton.addEventListener('click', startGame, false);
+
 // обертка для RequestAnimationFrame
 var requestAnimFrame = (function () {
   return window.requestAnimationFrame       ||
