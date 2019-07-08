@@ -1,5 +1,7 @@
 'use strict';
 var score = 0;
+var audio = document.querySelector('audio');
+var startButton = document.getElementById('game');
 
 // обертка для RequestAnimationFrame
 var requestAnimFrame = (function () {
