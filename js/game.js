@@ -6,27 +6,6 @@ var startButton = document.getElementById('game');
 // устанавливаем слушателя на startButton
 startButton.addEventListener('click', startGame, false);
 
-// Функция старта игры
-function startGame() {
-  isPlaying = true;
-  score = 0;
-  player.px = 400 - player.w / 2;
-  player.py = 300;
-  cake.px = Math.random() * (canvas.width - cake.w);
-  cake.py = 0;
-  cake2.px = Math.random() * (canvas.width - cake2.w);
-  cake2.py = 0;
-  cake3.px = Math.random() * (canvas.width - cake3.w);
-  cake3.py = 0;
-  meteorits.px = Math.random() * (canvas.width - meteorits.w);
-  meteorits.py = 0;
-}
-
-// функция окончания игры
-function gameOver() {
-  isPlaying = false;
-  drawGameOver();
-}
 
 // обертка для RequestAnimationFrame
 var requestAnimFrame = (function () {
@@ -239,6 +218,48 @@ var cake3 = {
     }
   }
 };
+
+// Функция старта игры
+function startGame() {
+  isPlaying = true;
+  score = 0;
+  player.px = 400 - player.w / 2;
+  player.py = 300;
+  cake.px = Math.random() * (canvas.width - cake.w);
+  cake.py = 0;
+  cake2.px = Math.random() * (canvas.width - cake2.w);
+  cake2.py = 0;
+  cake3.px = Math.random() * (canvas.width - cake3.w);
+  cake3.py = 0;
+  meteorits.px = Math.random() * (canvas.width - meteorits.w);
+  meteorits.py = 0;
+}
+
+// функция окончания игры
+function gameOver() {
+  isPlaying = false;
+  drawGameOver();
+}
+
+// функция отрисовки счета игры
+function drawScore() {
+  context.save();
+  context.font = '18px Arial';
+  context.fillStyle = '#00afff';
+  context.fillText('Score: ' + score, 8, 20);
+  context.restore();
+}
+
+// функция отрисовки окончания игры
+function drawGameOver() {
+  context.save();
+  context.font = '60px Arial';
+  context.fillStyle = 'black';
+  context.fillText('Game over', 250, 250);
+  context.textAlign = 'center';
+  context.textBaseline = 'middle';
+  context.restore();
+}
 
 
 // отрисовка объектов на канвасе
