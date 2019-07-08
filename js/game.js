@@ -22,6 +22,11 @@ function startGame() {
   meteorits.py = 0;
 }
 
+// функция окончания игры
+function gameOver() {
+  isPlaying = false;
+  drawGameOver();
+}
 
 // обертка для RequestAnimationFrame
 var requestAnimFrame = (function () {
