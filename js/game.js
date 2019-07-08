@@ -98,18 +98,21 @@ window.addEventListener('keyup', function (EO) {
 
 
 // свойства и методы фона
-var background = {
+var gameFilde = {
   px: 0,
   py: 0,
   w: canvas.width,
   h: canvas.height,
   draw: function () {
     var bg = new Image();
-    bg.src = 'img/bg01.jpg';
+    bg.src = 'img/bg011.jpg';
     context.drawImage(bg, this.px, this.py, this.w, this.h);
+    drawScore();
+    if (!isPlaying) {
+      drawGameOver();
+    }
   }
 };
-
 
 // свойства и методы игрока
 var player = {
@@ -329,7 +332,7 @@ function collisionsCheck() {
 
 // отрисовка объектов на канвасе
 function draw() {
-  background.draw();
+  gameFilde.draw();
   player.draw();
   cake.draw();
   cake2.draw();
