@@ -1,4 +1,6 @@
 'use strict';
+var score = 0;
+
 // обертка для RequestAnimationFrame
 var requestAnimFrame = (function () {
   return window.requestAnimationFrame       ||
