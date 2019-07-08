@@ -3,67 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title>Главная</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>SpaceCakes</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<canvas id="canvas"></canvas>
 
-<div id=menu>
-  <ul class="menu__list">
-    <li class="menu__game">
-      <input class="buttons" type="button" value="Начать игру" onclick="switchToGamePage()">
-    </li>
-    <li class="menu__game">
-      <input class="buttons" type=button value='Правила игры' onclick='switchToRulesPage()'>
-    </li>
-    <li class="menu__game">
-      <input class="buttons" type=button value='Рекорды' onclick='switchToRecordsPage()'>
-    </li>
-    <li class="menu__game">
-      <input class="buttons" type=button value='О проекте' onclick='switchToAboutProjectPage()'>
-    </li>
-  </ul>
+<!-- sounds -->
+<audio class="audio" preload="auto">
+  <source src="audio/points.mp3" type="audio/mpeg">
+</audio>
+
+<div id="pageHTML">
 </div>
 
-<div id="rules">
-  <span class="title">Правила игры</span>
-  <h3>Помогите нашему крошечному пришельцу собрать как можно больше энергетических кексов избегая при этом препятствий
-    на пути.
-  </h3>
-  <ul class="list">
-    <li>1. Управляйте НЛО кнопками "влево", "вправо", "вверх" и "вниз"</li>
-    <li>2. Избегайте метеоритов</li>
-    <li>3. Собирайте кексы и получайте за это очки</li>
-  </ul>
+<button id="main" value="" onclick="switchToMainPage()">Главная</button>
+<button id="game" value="" onclick="switchToGamePage()">Начать игру</button>
+<button id="rules" value="" onclick="switchToRulesPage()">Правила</button>
+<button id="records" value="" onclick="switchToRecordsPage()">Рекорды</button>
+<button id="about project" value="" onclick="switchToAboutProjectPage()">О проекте</button>
+
+<div id="new-game">
+  <canvas id="canvas">Если вы видите это сообщение, то у вас не поддерживается Canvas. Обновите браузер.</canvas>
 </div>
 
-<div id="game-over-overlay">
-</div>
-
-<div id="game-start">
-  <h1>GAME START</h1>
-  <button id="play">Play</button>
-</div>
-
-<div id="game-over">
-  <h1>GAME OVER</h1>
-  <button id="play-again">Play Again</button>
-</div>
-
-<div class="wrapper">
-  <div id="instructions">
-    <div>
-      <!--move with <span class="key">arrows</span> or <span class="key">wasd</span>-->
-    </div>
-    <div>
-      <!--shoot with <span class="key">space</span>-->
-    </div>
-  </div>
-
-  <div id="score"></div>
-</div>
-<!--<input class="buttons" type=button value='Вернуться в меню' onclick='switchToMainPage()'>-->
 <script src="js/game.js"></script>
+<script>
+  'use strict';
+  window.onhashchange = SwitchToStateFromURLHash;
+
+  function SwitchToStateFromURLHash() {
+    const hash = window.location.hash;
+    let state = decodeURIComponent(hash.substr(1));
+
+    if (state === '') {
+      state = {page: 'main'};
+    } else {
+      state = JSON.parse(state);
+    }
+
+    let pageHTML = '';
+
+    switch (state.page) {
+      case 'main':
+        pageHTML += '<div id="main-page">';
+        pageHTML += '<img id="game-title" alt="title" src="img/title.png">';
+        pageHTML += '</div>';
+        break;
+      case 'game':
+        pageHTML += '<div id="new-game">';
+        pageHTML += '<canvas id="canvas"></canvas>';
+        // pageHTML += '<audio src="audio/points.mp3" class="audio"></audio>';
+        pageHTML += '</div>';
+        startGame();
+        break;
+      case 'rules':
+        pageHTML += '<div id="rules-game">';
+        pageHTML += '<h1 class="title">Правила игры</h1>';
+        pageHTML += '<h3>Помогите нашему крошечному пришельцу собрать как можно больше энергетических кексов, избегая при этом препятствий на пути.</h3>';
+        pageHTML += '<ul class="list">';
+        pageHTML += ' <li>Управляйте НЛО кнопками "влево", "вправо", "вверх" и "вниз"</li>';
+        pageHTML += '<li>Избегайте метеоритов</li>';
+        pageHTML += '<li>Собирайте кексы и получайте за это очки</li>';
+        pageHTML += '</ul>';
+        pageHTML += '</div>';
+        break;
+      case 'records':
+        pageHTML += '<div id="records-page">';
+        pageHTML += '<h1 id="game-title">Рекорды</h1>';
+        pageHTML += '</div>';
+        break;
+      case 'about':
+        pageHTML += '<div id="about-page">';
+        pageHTML += '<h1 id="game-title">О проекте</h1>';
+        pageHTML += '</div>';
+        break;
+    }
+    document.getElementById('pageHTML').innerHTML = pageHTML;
+  }
+
+  function switchToState(state) {
+    location.hash = encodeURIComponent(JSON.stringify(state));
+  }
+
+  function switchToMainPage() {
+    switchToState({page: 'main'});
+  }
+
+  function switchToGamePage() {
+    switchToState({page: 'game'});
+  }
+
+  function switchToRulesPage() {
+    switchToState({page: 'rules'});
+  }
+
+  function switchToRecordsPage() {
+    switchToState({page: 'records'});
+  }
+
+  function switchToAboutProjectPage() {
+    switchToState({page: 'about'});
+  }
+
+  SwitchToStateFromURLHash();
+</script>
 </body>
 </html>
