@@ -97,7 +97,7 @@ window.addEventListener('keyup', function (EO) {
 });
 
 
-// свойства и методы фона
+// свойства и методы игрового поля
 var gameFilde = {
   px: 0,
   py: 0,
