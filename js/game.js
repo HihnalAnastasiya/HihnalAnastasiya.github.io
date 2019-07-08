@@ -6,6 +6,23 @@ var startButton = document.getElementById('game');
 // устанавливаем слушателя на startButton
 startButton.addEventListener('click', startGame, false);
 
+// Функция старта игры
+function startGame() {
+  isPlaying = true;
+  score = 0;
+  player.px = 400 - player.w / 2;
+  player.py = 300;
+  cake.px = Math.random() * (canvas.width - cake.w);
+  cake.py = 0;
+  cake2.px = Math.random() * (canvas.width - cake2.w);
+  cake2.py = 0;
+  cake3.px = Math.random() * (canvas.width - cake3.w);
+  cake3.py = 0;
+  meteorits.px = Math.random() * (canvas.width - meteorits.w);
+  meteorits.py = 0;
+}
+
+
 // обертка для RequestAnimationFrame
 var requestAnimFrame = (function () {
   return window.requestAnimationFrame       ||
