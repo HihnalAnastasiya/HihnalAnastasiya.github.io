@@ -23,8 +23,6 @@ var requestAnimFrame = (function () {
 // Игровая среда CANVAS и её размеры
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-// var viewportWidth = window.innerWidth;
-// var viewportHeight = window.innerHeight;
 canvas.width = 800;
 canvas.height = 500;
 
@@ -48,14 +46,13 @@ function preloadImage(img) {
   preloadedImagesH[img] = true;
 }
 
-preloadImage( 'img/bg01.jpg');
+preloadImage('img/bg011.jpg');
 preloadImage('img/ufo02.gif');
 preloadImage('img/cakes/cake01.png');
 preloadImage('img/cakes/cake02.png');
 preloadImage('img/cakes/cake03.png');
 preloadImage('img/meteor.png');
 preloadImage('img/title.png');
-
 
 // управление игроком с клавиатуры
 window.addEventListener('keydown', function (EO) {
