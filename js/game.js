@@ -289,6 +289,14 @@ function drawGameOver() {
   context.restore();
 }
 
+// общая функция для расчета столкновений
+function collisions(a, b) {
+  return a.px < b.px + b.w - 10 &&
+    a.px + a.w - 10 > b.px &&
+    a.py < b.py + b.h - 10 &&
+    a.py + a.h - 10 > b.py;
+}
+
 
 // отрисовка объектов на канвасе
 function draw() {
