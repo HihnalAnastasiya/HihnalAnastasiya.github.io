@@ -297,6 +297,31 @@ function collisions(a, b) {
     a.py + a.h - 10 > b.py;
 }
 
+// функция проверки столкновений с метеоритами-препятствиями и бонусными кексами
+function collisionsCheck() {
+  if (collisions(meteorits, player)) {
+    gameOver();
+  }
+  if (collisions(cake, player)) {
+    score += 10;
+    audio.play();
+    cake.py = 0;
+    cake.px = Math.random() * (canvas.width - cake.w);
+  }
+  if (collisions(cake2, player)) {
+    score += 10;
+    audio.play();
+    cake2.py = 0;
+    cake2.px = Math.random() * (canvas.width - cake2.w);
+  }
+  if (collisions(cake3, player)) {
+    score += 10;
+    audio.play();
+    cake3.py = 0;
+    cake3.px = Math.random() * canvas.width - cake3.w;
+  }
+}
+
 
 // отрисовка объектов на канвасе
 function draw() {
