@@ -219,6 +219,34 @@ var cake3 = {
   }
 };
 
+// свойства и методы метеоритов-препятствий
+var meteorits = {
+  w: 80,
+  h: 80,
+  sy: 3,
+  px: Math.random() * (canvas.width - this.w),
+  py: -80,
+  draw: function () {
+    var imgMeteor = new Image();
+    imgMeteor.src = 'img/meteor.png';
+    context.drawImage(imgMeteor, this.px, this.py, this.w, this.h);
+  },
+  update: function () {
+    if (isPlaying) {
+      this.py += this.sy;
+      if (this.py + this.h > canvas.height) {
+        this.py = 0;
+        this.px = Math.random() * (canvas.width - this.w);
+      }
+      if (this.py < 0) {
+        this.py = 0;
+      }
+      collisionsCheck();
+    }
+  }
+};
+
+
 // Функция старта игры
 function startGame() {
   isPlaying = true;
