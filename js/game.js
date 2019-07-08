@@ -330,6 +330,7 @@ function draw() {
   cake.draw();
   cake2.draw();
   cake3.draw();
+  meteorits.draw();
 }
 
 
@@ -339,6 +340,7 @@ function update() {
   cake.update();
   cake2.update();
   cake3.update();
+  meteorits.update();
 }
 
 
