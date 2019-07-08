@@ -1,156 +1,78 @@
 html, body {
   margin: 0;
   padding: 0;
-  background-color: #151515;
+  background-color: black;
+
+  text-align: center;
+}
+
+#main-page, #rules-game, #records-page, #about-page {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  margin: auto;
+  z-index: 20;
+
+  width: 60%;
+  height: 80%;
+
+  background-color: blue;
+  border: 10px solid red;
+  border-radius:  1em;
+}
+
+#main-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#rules-game,  #records-page, #about-page {
+  display: block;
+  text-align: center;
 }
 
 canvas {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: block;
   margin: auto;
 
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+
+  width: 60%;
+  height: 80%;
+
+  border: 10px solid red;
+  border-radius: 1em;
+
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-.wrapper {
-  width: 512px;
-  margin: 0 auto;
-  margin-top: 2em;
+button{
+  margin-top: 10px;
+  width: 7em;
+  height: 1.8em;
+  border-radius: 3.125em;
+  font-size: 1.25em;
+  font-style: italic;
+  font-family: "Open Sans", sans-serif;
+  background-color: #21da1b;
 }
 
-#instructions {
-  float: left;
-  font-family: sans-serif;
-  color: #757575;
+button:focus {
+  outline: none;
 }
 
-#score {
-  float: right;
-  color: white;
-  font-size: 2em;
-}
-
-.key {
-  color: #aaffdd;
-}
-
-#game-start, #game-over-overlay {
-  margin: auto;
-  width: 512px;
-  height: 480px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  display: none;
-}
-
-#game-start {
-  height: 200px;
-  text-align: center;
+h1, h3, li, button {
   color: white;
 }
 
-#game-start h1 {
-  font-size: 3em;
-  font-family: sans-serif;
+ul li {
+  list-style: none;
 }
-
-#game-start button {
-  font-size: 1.5em;
-}
-
-#game-over, #game-over-overlay {
-  margin: auto;
-  width: 512px;
-  height: 480px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  display: none;
-}
-
-#game-over-overlay {
-  background-color: black;
-  opacity: .5;
-}
-
-#game-over {
-  height: 200px;
-  text-align: center;
-  color: white;
-}
-
-#game-over h1 {
-  font-size: 3em;
-  font-family: sans-serif;
-}
-
-/*rules*/
-
-/*#rules {*/
-  /*margin: 12.5em auto;*/
-  /*width: 50%;*/
-  /*max-width: 100%;*/
-  /*text-align: center;*/
-/*}*/
-
-/*.title {*/
-  /*font-size: 1.4em;*/
-/*}*/
-
-/*.list {*/
-  /*list-style: none;*/
-  /*text-align: left;*/
-  /*font-size: 1.2em;*/
-/*}*/
-
-/*.title, .list {*/
-  /*font-family: "Open Sans", sans-serif;*/
-/*}*/
-
-/*.buttons {*/
-  /*width: 10em;*/
-  /*max-width: 16.25em;*/
-  /*height: 1.5em;*/
-  /*background-color: transparent;*/
-  /*border: none;*/
-  /*font-size: 1.2em;*/
-  /*font-family: "Open Sans", sans-serif;*/
-/*}*/
-
-/*game menu*/
-
-/*#menu {*/
-  /*display: flex;*/
-  /*width: 100%;*/
-  /*max-width: 100%;*/
-  /*height: 100vh;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-/*}*/
-
-/*.menu__list {*/
-  /*list-style: none;*/
-/*}*/
-
-/*.buttons {*/
-  /*width: 10em;*/
-  /*max-width: 16.25em;*/
-  /*height: 1.5em;*/
-  /*background-color: transparent;*/
-  /*border: none;*/
-  /*font-size: 1.2em;*/
-  /*font-family: "Open Sans", sans-serif;*/
-/*}*/
-
-
-
