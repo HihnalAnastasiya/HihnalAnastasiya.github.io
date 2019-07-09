@@ -7,19 +7,6 @@ var startButton = document.getElementById('game');
 startButton.addEventListener('click', startGame, false);
 
 
-// обертка для RequestAnimationFrame
-var requestAnimFrame = (function () {
-  return window.requestAnimationFrame       ||
-    window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame    ||
-    window.oRequestAnimationFrame      ||
-    window.msRequestAnimationFrame     ||
-    function (callback) {
-      window.setTimeout(callback, 1000 / 60);
-    };
-})();
-
-
 // Игровая среда CANVAS и её размеры
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -354,7 +341,7 @@ function update() {
 function gameLoop() {
   update();
   draw();
-  requestAnimFrame(gameLoop);
+  requestAnimationFrame(gameLoop);
 }
 
 gameLoop();
