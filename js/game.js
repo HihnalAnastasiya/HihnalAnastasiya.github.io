@@ -254,12 +254,27 @@ function startGame() {
   cake3.py = 0;
   meteorits.px = Math.random() * (canvas.width - meteorits.w);
   meteorits.py = 0;
+  showBlockGameOver();
 }
 
 // функция окончания игры
 function gameOver() {
   isPlaying = false;
   drawGameOver();
+  showBlockGameOver();
+}
+
+function showBlockGameOver() {
+  if (!isPlaying ) {
+    blockUserNameInput.style.display = 'block';
+    var userName = document.getElementById('user-name').value;
+    var userScore = score;
+    playerResult.name = userName || 'player';
+    playerResult.score = userScore;
+    // sendResult();
+  } else {
+    blockUserNameInput.style.display = 'none';
+  }
 }
 
 // функция отрисовки счета игры
