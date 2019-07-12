@@ -47,7 +47,7 @@ preloadImage('img/title.png');
 // управление игроком с клавиатуры
 window.addEventListener('keydown', function (EO) {
   EO = EO || window.event;
-  EO.preventDefault();
+  // EO.preventDefault();
 
   if (EO.keyCode === 40) {
     player.sy = 10;
@@ -67,7 +67,7 @@ window.addEventListener('keydown', function (EO) {
 
 window.addEventListener('keyup', function (EO) {
   EO = EO || window.event;
-  EO.preventDefault();
+  // EO.preventDefault();
 
   if (EO.keyCode === 40) {
     player.sy = 0;
@@ -329,7 +329,7 @@ function collisionsCheck() {
     score += 10;
     audio.play();
     cake3.py = 0;
-    cake3.px = Math.random() * canvas.width - cake3.w;
+    cake3.px = Math.random() * (canvas.width - cake3.w);
   }
 }
 
