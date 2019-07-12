@@ -3,12 +3,12 @@ var score = 0;
 var audio = document.querySelector('audio');
 var startButton = document.getElementById('game');
 var buttonContinueGame = document.getElementById('continue-game');
-buttonContinueGame.addEventListener('click', startGame, false);
 var blockUserNameInput = document.getElementById('block-save-result');
 var playerResult = {}; // {name: userName, score: userScore}
-// устанавливаем слушателя на startButton
-startButton.addEventListener('click', startGame, false);
 
+// устанавливаем слушателей
+buttonContinueGame.addEventListener('click', startGame, false);
+startButton.addEventListener('click', startGame, false);
 
 // Игровая среда CANVAS и её размеры
 var canvas = document.getElementById('canvas');
@@ -21,7 +21,7 @@ canvas.style.left = 0;
 canvas.style.top = 0;
 
 
-// предзагруузка изображений
+// предзагрузка изображений
 var preloadedImagesH = {};
 
 function preloadImage(img) {
