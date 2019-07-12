@@ -2,9 +2,14 @@
 var score = 0;
 var audio = document.querySelector('audio');
 var startButton = document.getElementById('game');
-
+var buttonContinueGame = document.getElementById('continue-game');
+buttonContinueGame.addEventListener('click', startGame, false);
+var blockUserNameInput = document.getElementById('block-save-result');
+var playerResult = {}; // {name: userName, score: userScore}
 // устанавливаем слушателя на startButton
 startButton.addEventListener('click', startGame, false);
+var buttonSendResult = document.getElementById('save-result');
+buttonSendResult.addEventListener('click',  sendResult, false);
 
 
 // Игровая среда CANVAS и её размеры
