@@ -16,9 +16,9 @@ var context = canvas.getContext('2d');
 canvas.width = 800;
 canvas.height = 500;
 
-canvas.style.position = 'absolute';
-canvas.style.left = 0;
-canvas.style.top = 0;
+// canvas.style.position = 'absolute';
+// canvas.style.left = 0;
+// canvas.style.top = 0;
 
 
 // предзагрузка изображений
@@ -136,7 +136,7 @@ var player = {
   }
 };
 
-var isPlaying = true;
+var isPlaying;
 
 
 // свойства и методы бонусных кексов

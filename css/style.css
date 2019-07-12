@@ -1,7 +1,6 @@
 html, body {
   margin: 0;
   padding: 0;
-  /*background-color: black;*/
   background-image: url("./../img/sky.jpg");
   text-align: center;
 }
@@ -19,7 +18,6 @@ html, body {
   width: 60%;
   height: 80%;
 
-  /*background-color: blue;*/
   background-image: url("./../img/background-title.jpg");
   background-position: center;
   background-size: cover;
@@ -45,7 +43,6 @@ canvas {
   right: 0;
   display: block;
   margin: auto;
-
 
   width: 60%;
   height: 80%;
