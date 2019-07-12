@@ -2,7 +2,8 @@ var lastRecords = [];
 var UpdatePassword;
 var stringName = 'KHIKHNAL_SPACE_CAKES_RECORDS';
 var ajaxHandlerScript = 'http://fe.it-academy.by/AjaxStringStorage2.php';
-
+var buttonSendResult = document.getElementById('save-result');
+buttonSendResult.addEventListener('click',  sendResult, false);
 
 function refreshRecords() {
   $.ajax(

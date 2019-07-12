@@ -8,8 +8,6 @@ var blockUserNameInput = document.getElementById('block-save-result');
 var playerResult = {}; // {name: userName, score: userScore}
 // устанавливаем слушателя на startButton
 startButton.addEventListener('click', startGame, false);
-var buttonSendResult = document.getElementById('save-result');
-buttonSendResult.addEventListener('click',  sendResult, false);
 
 
 // Игровая среда CANVAS и её размеры
@@ -295,8 +293,8 @@ function drawScore() {
 function drawGameOver() {
   context.save();
   context.font = '60px Arial';
-  context.fillStyle = 'black';
-  context.fillText('Game over', 250, 250);
+  context.fillStyle = 'white';
+  context.fillText('Game over', 250, 100);
   context.textAlign = 'center';
   context.textBaseline = 'middle';
   context.restore();
