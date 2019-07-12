@@ -19,7 +19,10 @@ html, body {
   width: 60%;
   height: 80%;
 
-  background-color: blue;
+  /*background-color: blue;*/
+  background-image: url("./../img/background-title.jpg");
+  background-position: center;
+  background-size: cover;
   border: 10px solid red;
   border-radius:  1em;
 }
