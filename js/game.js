@@ -1,26 +1,31 @@
 'use strict';
 var score = 0;
 var isPlaying;
+var playerResult = {}; // {name: userName, score: userScore}
+var canvas;
+var context;
+var gameFilde;
+var player;
+var cake;
+var cake2;
+var cake3;
+var meteorits;
+
+// находим элементы DOM
 var audio = document.querySelector('audio');
 var startButton = document.getElementById('game');
 var buttonContinueGame = document.getElementById('continue-game');
 var blockUserNameInput = document.getElementById('block-save-result');
-var playerResult = {}; // {name: userName, score: userScore}
 
 // устанавливаем слушателей
-buttonContinueGame.addEventListener('click', startGame, false);
 startButton.addEventListener('click', startGame, false);
+buttonContinueGame.addEventListener('click', startGame, false);
 
 // Игровая среда CANVAS и её размеры
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
+canvas = document.getElementById('canvas');
+context = canvas.getContext('2d');
 canvas.width = 800;
 canvas.height = 500;
-
-// canvas.style.position = 'absolute';
-// canvas.style.left = 0;
-// canvas.style.top = 0;
-
 
 // предзагрузка изображений
 var preloadedImagesH = {};
@@ -44,6 +49,159 @@ preloadImage('img/cakes/cake02.png');
 preloadImage('img/cakes/cake03.png');
 preloadImage('img/meteor.png');
 preloadImage('img/title.png');
+
+// свойства и методы игрового поля
+gameFilde = {
+  positionX: 0,
+  positionY: 0,
+  width: canvas.width,
+  height: canvas.height,
+  draw: function () {
+    var bg = new Image();
+    bg.src = 'img/bg011.jpg';
+    context.drawImage(bg, this.positionX, this.positionY, this.width, this.height);
+    drawScore();
+    if (!isPlaying) {
+      drawGameOver();
+    }
+  }
+};
+
+// свойства и методы игрока
+player = {
+  width: 90,
+  height: 65,
+  speedX: 0,
+  speedY: 0,
+  positionX: 400 - this.width / 2,
+  positionY: 300,
+  draw: function () {
+    var img = new Image();
+    img.src = 'img/ufo02.gif';
+    context.drawImage(img, this.positionX, this.positionY, this.width, this.height);
+  },
+  update: function () {
+    if (isPlaying) {
+      this.positionX += this.speedX;
+      this.positionY += this.speedY;
+      if (this.positionY + this.height > canvas.height) {
+        this.positionY = canvas.height - this.height;
+      }
+      if (this.positionY < 0) {
+        this.positionY = 0;
+      }
+      if (this.positionX + this.width > canvas.width) {
+        this.positionX = canvas.width - this.width;
+      }
+      if (this.positionX < 0) {
+        this.positionX = 0;
+      }
+    }
+  }
+};
+
+// свойства и методы бонусных кексов
+cake = {
+  width: 40,
+  height: 40,
+  speedY: 3,
+  positionX: Math.random() * (canvas.width - this.width),
+  positionY: -40,
+  draw: function () {
+    var imgCake = new Image();
+    imgCake.src = 'img/cakes/cake01.png';
+    context.drawImage(imgCake, this.positionX, this.positionY, this.width, this.height);
+  },
+  update: function () {
+    if (isPlaying) {
+      this.positionY += this.speedY;
+      if (this.positionY + this.height > canvas.height) {
+        this.positionY = 0;
+        this.positionX = Math.random() * (canvas.width - this.width);
+      }
+      if (this.positionY < 0) {
+        this.positionY = 0;
+      }
+    }
+  }
+};
+
+cake2 = {
+  width: 35,
+  height: 35,
+  speedY: 4,
+  positionX: Math.random() * (canvas.width - this.width),
+  positionY: -40,
+  draw: function () {
+    var imgCake2 = new Image();
+    imgCake2.src = 'img/cakes/cake02.png';
+    context.drawImage(imgCake2, this.positionX, this.positionY, this.width, this.height);
+  },
+  update: function () {
+    if (isPlaying) {
+      this.positionY += this.speedY;
+      if (this.positionY + this.height > canvas.height) {
+        this.positionY = 0;
+        this.positionX = Math.random() * (canvas.width - this.width);
+      }
+      if (this.positionY < 0) {
+        this.positionY = 0;
+      }
+    }
+  }
+};
+
+cake3 = {
+  width: 45,
+  height: 45,
+  speedY: 2,
+  positionX: Math.random() * (canvas.width - this.width),
+  positionY: -45,
+  draw: function () {
+    var imgCake2 = new Image();
+    imgCake2.src = 'img/cakes/cake03.png';
+    context.drawImage(imgCake2, this.positionX, this.positionY, this.width, this.height);
+  },
+  update: function () {
+    if (isPlaying) {
+      this.positionY += this.speedY;
+      if (this.positionY + this.height > canvas.height) {
+        this.positionY = 0;
+        this.positionX = Math.random() * (canvas.width - this.width);
+      }
+      if (this.positionY < 0) {
+        this.positionY = 0;
+      }
+    }
+  }
+};
+
+// свойства и методы метеоритов-препятствий
+meteorits = {
+  width: 80,
+  height: 80,
+  speedY: 3,
+  positionX: Math.random() * (canvas.width - this.width),
+  positionY: -80,
+  draw: function () {
+    var imgMeteor = new Image();
+    imgMeteor.src = 'img/meteor.png';
+    context.drawImage(imgMeteor, this.positionX, this.positionY, this.width, this.height);
+  },
+  update: function () {
+    if (isPlaying) {
+      this.positionY += this.speedY;
+      if (this.positionY + this.height > canvas.height) {
+        this.positionY = 0;
+        this.positionX = Math.random() * (canvas.width - this.width);
+      }
+      if (this.positionY < 0) {
+        this.positionY = 0;
+      }
+      collisionsCheck();
+    }
+  }
+};
 
 // управление игроком с клавиатуры
 window.addEventListener('keydown', function (EO) {
@@ -85,162 +243,6 @@ window.addEventListener('keyup', function (EO) {
     player.speedX  = 0;
   }
 });
-
-
-// свойства и методы игрового поля
-var gameFilde = {
-  positionX: 0,
-  positionY: 0,
-  width: canvas.width,
-  height: canvas.height,
-  draw: function () {
-    var bg = new Image();
-    bg.src = 'img/bg011.jpg';
-    context.drawImage(bg, this.positionX, this.positionY, this.width, this.height);
-    drawScore();
-    if (!isPlaying) {
-      drawGameOver();
-    }
-  }
-};
-
-// свойства и методы игрока
-var player = {
-  width: 90,
-  height: 65,
-  speedX: 0,
-  speedY: 0,
-  positionX: 400 - this.width / 2,
-  positionY: 300,
-  draw: function () {
-    var img = new Image();
-    img.src = 'img/ufo02.gif';
-    context.drawImage(img, this.positionX, this.positionY, this.width, this.height);
-  },
-  update: function () {
-    if (isPlaying) {
-      this.positionX += this.speedX;
-      this.positionY += this.speedY;
-      if (this.positionY + this.height > canvas.height) {
-        this.positionY = canvas.height - this.height;
-      }
-      if (this.positionY < 0) {
-        this.positionY = 0;
-      }
-      if (this.positionX + this.width > canvas.width) {
-        this.positionX = canvas.width - this.width;
-      }
-      if (this.positionX < 0) {
-        this.positionX = 0;
-      }
-    }
-  }
-};
-
-
-// свойства и методы бонусных кексов
-var cake = {
-  width: 40,
-  height: 40,
-  speedY: 3,
-  positionX: Math.random() * (canvas.width - this.width),
-  positionY: -40,
-  draw: function () {
-    var imgCake = new Image();
-    imgCake.src = 'img/cakes/cake01.png';
-    context.drawImage(imgCake, this.positionX, this.positionY, this.width, this.height);
-  },
-  update: function () {
-    if (isPlaying) {
-      this.positionY += this.speedY;
-      if (this.positionY + this.height > canvas.height) {
-        this.positionY = 0;
-        this.positionX = Math.random() * (canvas.width - this.width);
-      }
-      if (this.positionY < 0) {
-        this.positionY = 0;
-      }
-    }
-  }
-};
-
-var cake2 = {
-  width: 35,
-  height: 35,
-  speedY: 4,
-  positionX: Math.random() * (canvas.width - this.width),
-  positionY: -40,
-  draw: function () {
-    var imgCake2 = new Image();
-    imgCake2.src = 'img/cakes/cake02.png';
-    context.drawImage(imgCake2, this.positionX, this.positionY, this.width, this.height);
-  },
-  update: function () {
-    if (isPlaying) {
-      this.positionY += this.speedY;
-      if (this.positionY + this.height > canvas.height) {
-        this.positionY = 0;
-        this.positionX = Math.random() * (canvas.width - this.width);
-      }
-      if (this.positionY < 0) {
-        this.positionY = 0;
-      }
-    }
-  }
-};
-
-var cake3 = {
-  width: 45,
-  height: 45,
-  speedY: 2,
-  positionX: Math.random() * (canvas.width - this.width),
-  positionY: -45,
-  draw: function () {
-    var imgCake2 = new Image();
-    imgCake2.src = 'img/cakes/cake03.png';
-    context.drawImage(imgCake2, this.positionX, this.positionY, this.width, this.height);
-  },
-  update: function () {
-    if (isPlaying) {
-      this.positionY += this.speedY;
-      if (this.positionY + this.height > canvas.height) {
-        this.positionY = 0;
-        this.positionX = Math.random() * (canvas.width - this.width);
-      }
-      if (this.positionY < 0) {
-        this.positionY = 0;
-      }
-    }
-  }
-};
-
-// свойства и методы метеоритов-препятствий
-var meteorits = {
-  width: 80,
-  height: 80,
-  speedY: 3,
-  positionX: Math.random() * (canvas.width - this.width),
-  positionY: -80,
-  draw: function () {
-    var imgMeteor = new Image();
-    imgMeteor.src = 'img/meteor.png';
-    context.drawImage(imgMeteor, this.positionX, this.positionY, this.width, this.height);
-  },
-  update: function () {
-    if (isPlaying) {
-      this.positionY += this.speedY;
-      if (this.positionY + this.height > canvas.height) {
-        this.positionY = 0;
-        this.positionX = Math.random() * (canvas.width - this.width);
-      }
-      if (this.positionY < 0) {
-        this.positionY = 0;
-      }
-      collisionsCheck();
-    }
-  }
-};
-
 
 // Функция старта игры
 function startGame() {
@@ -332,7 +334,6 @@ function collisionsCheck() {
   }
 }
 
-
 // отрисовка объектов на канвасе
 function draw() {
   gameFilde.draw();
@@ -343,7 +344,6 @@ function draw() {
   meteorits.draw();
 }
 
-
 // обновление сущностей
 function update() {
   player.update();
@@ -352,7 +352,6 @@ function update() {
   cake3.update();
   meteorits.update();
 }
-
 
 // цикл, постоянно отрисовывающий и обнавляющий игру
 function gameLoop() {
