@@ -13,9 +13,21 @@ let meteorits;
 
 // находим элементы DOM
 let audio = document.querySelector('audio');
+let introBackgroundSound = document.querySelector('background-music-intro');
 let startButton = document.getElementById('game');
 let buttonContinueGame = document.getElementById('continue-game');
 let blockUserNameInput = document.getElementById('block-save-result');
+
+
+function soundPlay(sound) {
+  sound.play();
+}
+
+function soundStop(sound) {
+  sound.pause();
+}
+
+
 
 // устанавливаем слушателей
 startButton.addEventListener('click', startGame, false);
@@ -315,19 +327,22 @@ function collisionsCheck() {
   }
   if (collisions(cake, player)) {
     score += 10;
-    audio.play();
+    soundPlay(audio);
+    // audio.play();
     cake.positionY = 0;
     cake.positionX = Math.random() * (canvas.width - cake.width);
   }
   if (collisions(cake2, player)) {
     score += 10;
-    audio.play();
+    // audio.play();
+    soundPlay(audio);
     cake2.positionY = 0;
     cake2.positionX = Math.random() * (canvas.width - cake2.width);
   }
   if (collisions(cake3, player)) {
     score += 10;
-    audio.play();
+    // audio.play();
+    soundPlay(audio);
     cake3.positionY = 0;
     cake3.positionX = Math.random() * (canvas.width - cake3.width);
   }
