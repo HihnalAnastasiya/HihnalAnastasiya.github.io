@@ -1,5 +1,4 @@
 'use strict';
-var lastRecords = [];
 window.onhashchange = SwitchToStateFromURLHash;
 
 function SwitchToStateFromURLHash() {
@@ -42,7 +41,7 @@ function SwitchToStateFromURLHash() {
       pageHTML += '<h1 id="game-title">Рекорды</h1>';
       pageHTML += '<table>';
       pageHTML += '<tr class="table-cell"><th class="table-cell">Имя игрока</th><th class="table-cell">Счет</th></tr>';
-      for (var i = 0; i < lastRecords.length; i++) {
+      for (let i = 0; i < lastRecords.length; i++) {
         pageHTML += `<tr class="table-cell"><td class="table-cell" id="player">${lastRecords[i].name}</td><td class="table-cell" id="score">${lastRecords[i].score}</td></tr>`;
       }
       pageHTML += '</table>';

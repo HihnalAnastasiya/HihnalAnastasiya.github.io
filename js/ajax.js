@@ -1,8 +1,9 @@
-var lastRecords = [];
-var UpdatePassword;
-var stringName = 'KHIKHNAL_SPACE_CAKES_RECORDS';
-var ajaxHandlerScript = 'http://fe.it-academy.by/AjaxStringStorage2.php';
-var buttonSendResult = document.getElementById('save-result');
+'use strict';
+let lastRecords = [];
+let UpdatePassword;
+const stringName = 'KHIKHNAL_SPACE_CAKES_RECORDS';
+const ajaxHandlerScript = 'http://fe.it-academy.by/AjaxStringStorage2.php';
+let buttonSendResult = document.getElementById('save-result');
 buttonSendResult.addEventListener('click',  sendResult, false);
 
 function refreshRecords() {
@@ -59,8 +60,8 @@ function LockGetReady(resultData) {
         lastRecords = [];
     }
 
-    var playerName = playerResult.name || 'player';
-    var playerScore = playerResult.score || 0;
+    let playerName = playerResult.name || 'player';
+    let playerScore = playerResult.score || 0;
     lastRecords.push({name: playerName, score: playerScore});
     if (lastRecords.length > 10)
       lastRecords = lastRecords.slice(lastRecords.length - 10);
