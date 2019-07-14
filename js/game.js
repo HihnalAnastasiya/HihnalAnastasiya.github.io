@@ -12,12 +12,10 @@ let cake3;
 let meteorits;
 
 // находим элементы DOM
-let audio = document.querySelector('audio');
-let startButton = document.getElementById('game');
-let buttonContinueGame = document.getElementById('continue-game');
-let blockUserNameInput = document.getElementById('block-save-result');
-
-
+const audio = document.querySelector('audio');
+const startButton = document.getElementById('game');
+const buttonContinueGame = document.getElementById('continue-game');
+const blockUserNameInput = document.getElementById('block-save-result');
 
 // устанавливаем слушателей
 startButton.addEventListener('click', startGame, false);
@@ -50,6 +48,7 @@ preloadImage('img/cakes/cake01.png');
 preloadImage('img/cakes/cake02.png');
 preloadImage('img/cakes/cake03.png');
 preloadImage('img/meteorite.png');
+preloadImage('img/pause.png');
 
 // свойства и методы игрового поля
 gameFilde = {
@@ -58,9 +57,9 @@ gameFilde = {
   width: canvas.width,
   height: canvas.height,
   draw: function () {
-    let bg = new Image();
-    bg.src = 'img/background-game-area.jpg';
-    context.drawImage(bg, this.positionX, this.positionY, this.width, this.height);
+    let background = new Image();
+    background.src = 'img/background-game-area.jpg';
+    context.drawImage(background, this.positionX, this.positionY, this.width, this.height);
     drawScore();
     if (!isPlaying) {
       drawGameOver();
@@ -77,9 +76,9 @@ player = {
   positionX: 400 - this.width / 2,
   positionY: 300,
   draw: function () {
-    let img = new Image();
-    img.src = 'img/ufo.gif';
-    context.drawImage(img, this.positionX, this.positionY, this.width, this.height);
+    let imgPlayer = new Image();
+    imgPlayer.src = 'img/ufo.gif';
+    context.drawImage(imgPlayer, this.positionX, this.positionY, this.width, this.height);
   },
   update: function () {
     if (isPlaying) {
@@ -292,6 +291,12 @@ function soundPlay(sound) {
 //   sound.pause();
 // }
 
+function drawButtonPause() {
+  let imgPause = new Image();
+  imgPause.src = 'img/pause.png';
+  context.drawImage(imgPause, 750, 5, 40, 40);
+}
+
 // функция отрисовки счета игры
 function drawScore() {
   context.save();
@@ -328,20 +333,17 @@ function collisionsCheck() {
   if (collisions(cake, player)) {
     score += 10;
     soundPlay(audio);
-    // audio.play();
     cake.positionY = 0;
     cake.positionX = Math.random() * (canvas.width - cake.width);
   }
   if (collisions(cake2, player)) {
     score += 10;
-    // audio.play();
     soundPlay(audio);
     cake2.positionY = 0;
     cake2.positionX = Math.random() * (canvas.width - cake2.width);
   }
   if (collisions(cake3, player)) {
     score += 10;
-    // audio.play();
     soundPlay(audio);
     cake3.positionY = 0;
     cake3.positionX = Math.random() * (canvas.width - cake3.width);
@@ -356,6 +358,7 @@ function draw() {
   cake2.draw();
   cake3.draw();
   meteorits.draw();
+  drawButtonPause();
 }
 
 // обновление сущностей
