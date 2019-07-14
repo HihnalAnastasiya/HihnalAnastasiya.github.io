@@ -27,17 +27,20 @@ function SwitchToStateFromURLHash() {
       break;
     case 'rules':
       pageHTML += '<div id="rules-game">';
+      pageHTML += '<div class="wrapper">';
       pageHTML += '<h1 class="title">Правила игры</h1>';
-      pageHTML += '<h3>Помогите нашему крошечному пришельцу собрать как можно больше энергетических кексов, избегая при этом препятствий на пути.</h3>';
+      pageHTML += '<h2>Помогите нашему крошечному пришельцу собрать как можно больше энергетических кексов, избегая при этом препятствий на пути.</h2>';
       pageHTML += '<ul class="list">';
-      pageHTML += ' <li>Управляйте НЛО кнопками "влево", "вправо", "вверх" и "вниз"</li>';
-      pageHTML += '<li>Избегайте метеоритов</li>';
-      pageHTML += '<li>Собирайте кексы и получайте за это очки</li>';
+      pageHTML += '<li>Управляйте НЛО кнопками<br> "влево", "вправо", "вверх" и "вниз".</li>';
+      pageHTML += '<li>Избегайте метеоритов.</li>';
+      pageHTML += '<li>Собирайте кексы и получайте за это очки!!!</li>';
       pageHTML += '</ul>';
+      pageHTML += '</div>';
       pageHTML += '</div>';
       break;
     case 'records':
       pageHTML += '<div id="records-page">';
+      pageHTML += '<div class="wrapper-records-page">';
       pageHTML += '<h1 id="game-title">Рекорды</h1>';
       pageHTML += '<table>';
       pageHTML += '<tr class="table-cell"><th class="table-cell">Имя игрока</th><th class="table-cell">Счет</th></tr>';
@@ -46,10 +49,20 @@ function SwitchToStateFromURLHash() {
       }
       pageHTML += '</table>';
       pageHTML += '</div>';
+      pageHTML += '</div>';
       break;
     case 'about':
       pageHTML += '<div id="about-page">';
+      pageHTML += '<div class="wrapper">';
       pageHTML += '<h1 id="game-title">О проекте</h1>';
+      pageHTML += '<ul class="list">';
+      pageHTML += '<li>Образовательный центр<br> Парка высоких технологий г. Гродно.</li>';
+      pageHTML += '<li>Выпускной проект: игра "Space cakes".</li>';
+      pageHTML += '<li>Автор: Хихнал Анастасия.</li>';
+      pageHTML += '<li>Преподаватель: Александр Сташкевич.</li>';
+      pageHTML += '<li>Дата: 16.07.19.</li>';
+      pageHTML += '</ul>';
+      pageHTML += '</div>';
       pageHTML += '</div>';
       break;
   }
