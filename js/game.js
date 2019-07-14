@@ -49,7 +49,6 @@ preloadImage('img/cakes/cake01.png');
 preloadImage('img/cakes/cake02.png');
 preloadImage('img/cakes/cake03.png');
 preloadImage('img/meteor.png');
-preloadImage('img/title.png');
 
 // свойства и методы игрового поля
 gameFilde = {
