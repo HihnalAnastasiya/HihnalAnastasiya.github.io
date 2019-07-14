@@ -17,7 +17,6 @@ let startButton = document.getElementById('game');
 let buttonContinueGame = document.getElementById('continue-game');
 let blockUserNameInput = document.getElementById('block-save-result');
 
-
 // устанавливаем слушателей
 startButton.addEventListener('click', startGame, false);
 buttonContinueGame.addEventListener('click', startGame, false);
@@ -43,12 +42,12 @@ function preloadImage(img) {
   preloadedImagesH[img] = true;
 }
 
-preloadImage('img/bg011.jpg');
-preloadImage('img/ufo02.gif');
+preloadImage('img/background-game-area.jpg');
+preloadImage('img/ufo.gif');
 preloadImage('img/cakes/cake01.png');
 preloadImage('img/cakes/cake02.png');
 preloadImage('img/cakes/cake03.png');
-preloadImage('img/meteor.png');
+preloadImage('img/meteorite.png');
 
 // свойства и методы игрового поля
 gameFilde = {
@@ -58,7 +57,7 @@ gameFilde = {
   height: canvas.height,
   draw: function () {
     let bg = new Image();
-    bg.src = 'img/bg011.jpg';
+    bg.src = 'img/background-game-area.jpg';
     context.drawImage(bg, this.positionX, this.positionY, this.width, this.height);
     drawScore();
     if (!isPlaying) {
@@ -77,7 +76,7 @@ player = {
   positionY: 300,
   draw: function () {
     let img = new Image();
-    img.src = 'img/ufo02.gif';
+    img.src = 'img/ufo.gif';
     context.drawImage(img, this.positionX, this.positionY, this.width, this.height);
   },
   update: function () {
@@ -185,7 +184,7 @@ meteorits = {
   positionY: -80,
   draw: function () {
     let imgMeteor = new Image();
-    imgMeteor.src = 'img/meteor.png';
+    imgMeteor.src = 'img/meteorite.png';
     context.drawImage(imgMeteor, this.positionX, this.positionY, this.width, this.height);
   },
   update: function () {

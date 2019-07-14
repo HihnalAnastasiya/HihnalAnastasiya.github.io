@@ -18,19 +18,23 @@ html, body {
   width: 60%;
   height: 80%;
 
-  background-image: url("./../img/background-title.jpg");
+  background-image: url("./../img/background.jpg");
   background-position: center;
   background-size: cover;
   border: 10px solid red;
-  border-radius:  1em;
+  border-radius: 1em;
 }
 
 #main-page {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url("./../img/background-title.jpg");
+  background-position: center;
+  background-size: cover;
 }
-#rules-game,  #records-page, #about-page {
+
+#rules-game, #records-page, #about-page {
   display: block;
   text-align: center;
 }
@@ -54,7 +58,7 @@ canvas {
   will-change: transform;
 }
 
-button{
+button {
   margin-top: 10px;
   width: 7em;
   height: 1.8em;
@@ -139,4 +143,3 @@ table {
   font-family: "Open Sans", sans-serif;
   color: white;
 }
-
