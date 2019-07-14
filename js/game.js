@@ -13,19 +13,9 @@ let meteorits;
 
 // находим элементы DOM
 let audio = document.querySelector('audio');
-let introBackgroundSound = document.querySelector('background-music-intro');
 let startButton = document.getElementById('game');
 let buttonContinueGame = document.getElementById('continue-game');
 let blockUserNameInput = document.getElementById('block-save-result');
-
-
-function soundPlay(sound) {
-  sound.play();
-}
-
-function soundStop(sound) {
-  sound.pause();
-}
 
 
 
@@ -291,6 +281,16 @@ function showBlockGameOver() {
     blockUserNameInput.style.display = 'none';
   }
 }
+
+// функция проигрывания звуков и музыкальных фонов
+function soundPlay(sound) {
+  sound.play();
+}
+
+// функция остановки звуковых фонов
+// function soundStop(sound) {
+//   sound.pause();
+// }
 
 // функция отрисовки счета игры
 function drawScore() {

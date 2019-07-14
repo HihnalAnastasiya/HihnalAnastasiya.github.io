@@ -21,7 +21,6 @@ function SwitchToStateFromURLHash() {
     case 'game':
       pageHTML += '<div id="new-game">';
       pageHTML += '<canvas id="canvas"></canvas>';
-      // pageHTML += '<audio src="audio/points.mp3" class="audio"></audio>';
       pageHTML += '</div>';
       startGame();
       break;
