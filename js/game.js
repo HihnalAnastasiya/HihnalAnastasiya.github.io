@@ -1,21 +1,22 @@
 'use strict';
-var score = 0;
-var isPlaying;
-var playerResult = {}; // {name: userName, score: userScore}
-var canvas;
-var context;
-var gameFilde;
-var player;
-var cake;
-var cake2;
-var cake3;
-var meteorits;
+let score = 0;
+let isPlaying;
+let playerResult = {}; // {name: userName, score: userScore}
+let canvas;
+let context;
+let gameFilde;
+let player;
+let cake;
+let cake2;
+let cake3;
+let meteorits;
 
 // находим элементы DOM
-var audio = document.querySelector('audio');
-var startButton = document.getElementById('game');
-var buttonContinueGame = document.getElementById('continue-game');
-var blockUserNameInput = document.getElementById('block-save-result');
+let audio = document.querySelector('audio');
+let startButton = document.getElementById('game');
+let buttonContinueGame = document.getElementById('continue-game');
+let blockUserNameInput = document.getElementById('block-save-result');
+
 
 // устанавливаем слушателей
 startButton.addEventListener('click', startGame, false);
@@ -28,7 +29,7 @@ canvas.width = 800;
 canvas.height = 500;
 
 // предзагрузка изображений
-var preloadedImagesH = {};
+let preloadedImagesH = {};
 
 function preloadImage(img) {
   // если такое изображение уже предзагружалось - ничего не делаем
@@ -36,7 +37,7 @@ function preloadImage(img) {
     return;
   }
   // предзагружаем - создаём невидимое изображение
-  var Img = new Image();
+  let Img = new Image();
   Img.src = img;
   // запоминаем, что изображение уже предзагружалось
   preloadedImagesH[img] = true;
@@ -57,7 +58,7 @@ gameFilde = {
   width: canvas.width,
   height: canvas.height,
   draw: function () {
-    var bg = new Image();
+    let bg = new Image();
     bg.src = 'img/bg011.jpg';
     context.drawImage(bg, this.positionX, this.positionY, this.width, this.height);
     drawScore();
@@ -76,7 +77,7 @@ player = {
   positionX: 400 - this.width / 2,
   positionY: 300,
   draw: function () {
-    var img = new Image();
+    let img = new Image();
     img.src = 'img/ufo02.gif';
     context.drawImage(img, this.positionX, this.positionY, this.width, this.height);
   },
@@ -108,7 +109,7 @@ cake = {
   positionX: Math.random() * (canvas.width - this.width),
   positionY: -40,
   draw: function () {
-    var imgCake = new Image();
+    let imgCake = new Image();
     imgCake.src = 'img/cakes/cake01.png';
     context.drawImage(imgCake, this.positionX, this.positionY, this.width, this.height);
   },
@@ -133,7 +134,7 @@ cake2 = {
   positionX: Math.random() * (canvas.width - this.width),
   positionY: -40,
   draw: function () {
-    var imgCake2 = new Image();
+    let imgCake2 = new Image();
     imgCake2.src = 'img/cakes/cake02.png';
     context.drawImage(imgCake2, this.positionX, this.positionY, this.width, this.height);
   },
@@ -158,7 +159,7 @@ cake3 = {
   positionX: Math.random() * (canvas.width - this.width),
   positionY: -45,
   draw: function () {
-    var imgCake2 = new Image();
+    let imgCake2 = new Image();
     imgCake2.src = 'img/cakes/cake03.png';
     context.drawImage(imgCake2, this.positionX, this.positionY, this.width, this.height);
   },
@@ -184,7 +185,7 @@ meteorits = {
   positionX: Math.random() * (canvas.width - this.width),
   positionY: -80,
   draw: function () {
-    var imgMeteor = new Image();
+    let imgMeteor = new Image();
     imgMeteor.src = 'img/meteor.png';
     context.drawImage(imgMeteor, this.positionX, this.positionY, this.width, this.height);
   },
@@ -271,8 +272,8 @@ function gameOver() {
 function showBlockGameOver() {
   if (!isPlaying ) {
     blockUserNameInput.style.display = 'block';
-    var userName = document.getElementById('user-name').value;
-    var userScore = score;
+    let userName = document.getElementById('user-name').value;
+    let userScore = score;
     playerResult.name = userName || 'player';
     playerResult.score = userScore;
     // sendResult();

@@ -1,4 +1,5 @@
 'use strict';
+var lastRecords = [];
 window.onhashchange = SwitchToStateFromURLHash;
 
 function SwitchToStateFromURLHash() {
