@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>SpaceCakes</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<!-- sounds -->
+<!--<audio class="background-music-intro" preload>-->
+<!--<source src="audio/intro-background-music.mp3" type="audio/mpeg">-->
+<!--</audio>-->
+<!--<audio class="game-over-sound" preload>-->
+<!--<source src="audio/game-over-sound.mp3" type="audio/mpeg">-->
+<!--</audio>-->
+<audio class="audio" preload>
+  <source src="audio/points.mp3" type="audio/mpeg">
+</audio>
+
+<div id="pageHTML">
+</div>
+
+<button id="main" value="" onclick="switchToMainPage()">Главная</button>
+<button id="game" value="" onclick="switchToGamePage()">Начать игру</button>
+<button id="rules" value="" onclick="switchToRulesPage()">Правила</button>
+<button id="records" value="" onclick="switchToRecordsPage()">Рекорды</button>
+<button id="about project" value="" onclick="switchToAboutProjectPage()">О проекте</button>
+
+<div id="new-game">
+  <canvas id="canvas">Если Вы видите это сообщение, то у Вас не поддерживается Canvas. Обновите браузер.</canvas>
+  <div id="block-save-result">
+    <span id="message">Сохраните свой результат. Ваше имя?</span>
+    <input type="text" id="user-name">
+    <button id="save-result">Добавить</button>
+    <button id="continue-game">Играть</button>
+  </div>
+</div>
+
+<script src="js/game.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/spa.js"></script>
+</body>
+</html>
