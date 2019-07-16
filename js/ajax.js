@@ -2,7 +2,7 @@
 let lastRecords = [];
 let UpdatePassword;
 const stringName = 'KHIKHNAL_SPACE_CAKES_RECORDS';
-const ajaxHandlerScript = 'http://fe.it-academy.by/AjaxStringStorage2.php';
+const ajaxHandlerScript = 'https://fe.it-academy.by/AjaxStringStorage2.php';
 let buttonSendResult = document.getElementById('save-result');
 buttonSendResult.addEventListener('click',  sendResult, false);
 
